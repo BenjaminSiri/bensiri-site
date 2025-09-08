@@ -1,15 +1,15 @@
 version: 1
 applications:
-  - appRoot: client        # React app lives here
-    env:
-      runtime: nodejs20    # optional, ensures modern Node
+  - appRoot: client
     frontend:
       phases:
         preBuild:
           commands:
-            - npm ci       # or: npm install
+            - npm ci
         build:
           commands:
+            # Fail the build if TypeScript types don’t check
+            - npm run typecheck
             - npm run build
       artifacts:
         baseDirectory: build   # CRA outputs to "build"
