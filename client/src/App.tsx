@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import Button from '@mui/material/Button';
 
 const MainDiv = styled.div`
   text-align: center;
@@ -8,10 +9,13 @@ const MainDiv = styled.div`
   width: 100vw;
 `;
 
+const StyledButton = styled(Button)`
+`;
+
 function App() {
   return (
     <MainDiv className="App">
-      <p>Hello World</p>
+      <StyledButton variant="contained">Hello World</StyledButton>
     </MainDiv>
   );
 }

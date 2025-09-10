@@ -4,7 +4,9 @@ export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: #282c34;
+  }
+
+  body {
+    background-color: #121212;
   }
 `;
