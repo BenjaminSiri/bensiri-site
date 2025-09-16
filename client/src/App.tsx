@@ -167,10 +167,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log("SERVICE", process.env.REACT_APP_EMAILJS_SERVICE_ID);
-  console.log("TEMPLATE", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-  console.log("PUBLIC", !!process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
-
   return (
     <MainDiv className="App">
       <ColorBar id="top"/>
