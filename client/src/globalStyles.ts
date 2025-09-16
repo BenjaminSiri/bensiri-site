@@ -1,5 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
+const Accent = '#34d399';
+const Dark = '#222222';
+const Light = '#fefefe';
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -7,11 +11,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #fefefe;
+    background-color: ${Light};
     font-family: 'Roboto', sans-serif;
   }
 `;
 
-const Blue = '#42a7ff';
-
-export { GlobalStyle, Blue };
+export { GlobalStyle, Accent, Dark, Light };
