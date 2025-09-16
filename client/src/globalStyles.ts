@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const Accent = '#34d399';
+const Accent2 = '#ffda5e';
 const Dark = '#222222';
 const Light = '#fefefe';
 
@@ -16,4 +17,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export { GlobalStyle, Accent, Dark, Light };
+export { GlobalStyle, Accent, Accent2, Dark, Light };
