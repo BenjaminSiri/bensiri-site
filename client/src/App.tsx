@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Button from '@mui/material/Button';
 import { Accent, Accent2, Dark, Light } from './globalStyles';
 
+import ContactDialog from './components/ContactDialog';
+
 
 const MainDiv = styled.div`
   text-align: center;
@@ -100,7 +102,7 @@ const PFPDiv = styled.div<{ $imageUrl?: string }>`
   width: 400px;
   border-radius: 50%;
   background-color: ${Accent};
-  border: 10px solid black;
+  border: 10px solid ${Dark};
 
   background-image: ${({ $imageUrl }) => ($imageUrl ? `url(${$imageUrl})` : "none")};
   background-position: center;
@@ -155,6 +157,7 @@ const onTopClick = () => {
 function App() {
 
   const [stickyNavVisible, setStickyNavVisible] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -168,6 +171,7 @@ function App() {
   return (
     <MainDiv className="App">
       <ColorBar id="top"/>
+      <ContactDialog open={dialogOpen} setOpen={setDialogOpen}/>
       <BodyDiv>
         <NavDiv>
           <NavButtonsDiv>
@@ -195,6 +199,7 @@ function App() {
           </NavButtonsDiv>
           <StyledButton
             $sticky={false}
+            onClick={() => setDialogOpen(true)}
           >
             Contact Me
           </StyledButton>
@@ -226,6 +231,7 @@ function App() {
           </NavButtonsDiv>
           <StyledButton
             $sticky={true}
+            onClick={() => setDialogOpen(true)}
           >
             Contact Me
           </StyledButton>
