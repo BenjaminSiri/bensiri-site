@@ -34,29 +34,31 @@ const NavDiv = styled.div`
 const NavButtonsDiv = styled.div`
   display: flex;
   gap: 20px;
+  align-items: center;
 `;
 
 const StyledButton = styled(Button)`
   &&  {
-  position: relative;
-  overflow: hidden;
-  background: none;
-  border: none;
-  color: black;
-  font-size: 32px;
-  font-weight: bold;
-  padding: 2px 2px;
-  cursor: pointer;
-  border-radius: 0;
-}
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 2px 2px;
+    cursor: pointer;
+    border-radius: 0;
+  }
 
   &::before {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 100%;
     background-color: ${Accent};
     transition: all 0.3s ease;
     z-index: -1;
@@ -104,8 +106,20 @@ const ProjectsDiv = styled.div`
   margin-top: 80px;
 `;
 
+const ResumeDiv = styled.div`
+  width: 80%;
+  height: 600px;
+  background-color: ${Accent};
+  color: ${Dark};
+  margin-top: 80px;
+`;
+
 const onProjectClick = () => {
   document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+}
+
+const onResumeClick = () => {
+  document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" })
 }
 
 
@@ -117,7 +131,7 @@ function App() {
         <NavDiv>
           <NavButtonsDiv>
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-            <rect x="2" y="2" width="60" height="60" rx="12"
+            <rect x="2" y="2" width="60" height="60" rx="8"
                   fill="none" stroke="#000000" stroke-width="4"/>
             <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
                   font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
@@ -126,10 +140,15 @@ function App() {
 
             <StyledButton
               onClick={onProjectClick}
-              >
-                Projects
+            >
+              Projects
             </StyledButton>
-            
+            <StyledButton
+              onClick={onResumeClick}
+            >
+              Resume
+            </StyledButton>
+
           </NavButtonsDiv>
           <StyledButton>Contact Me</StyledButton>
         </NavDiv>
@@ -141,8 +160,12 @@ function App() {
         </BioDiv>
 
         <ProjectsDiv id="projects">
-          Work is progress...
+          Projects
         </ProjectsDiv>
+
+        <ResumeDiv id="resume">
+          Resume
+        </ResumeDiv>
       </BodyDiv>
     </MainDiv>
   );
