@@ -84,8 +84,8 @@ const StyledButton = styled(Button)<{$sticky? : boolean}>`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 44px;
-    height: 100%;
+    width: ${({ $sticky }) => ($sticky ? '100%' : '44px')};
+    height: ${({ $sticky }) => ($sticky ? '16px' : '100%')};
     background-color: ${({ $sticky }) => ($sticky ? Accent2 : Accent)};
     transition: all 0.3s ease;
     z-index: -1;
