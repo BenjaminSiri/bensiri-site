@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Accent, Accent2, Dark, Light } from './globalStyles';
 
 import ContactDialog from './components/ContactDialog';
+import ProjectCard from './components/ProjectCard';
 
 
 const MainDiv = styled.div`
@@ -125,12 +126,27 @@ const BioDiv = styled.div`
   text-align: left;
 `;
 
-const ProjectsDiv = styled.div`
+const SectionDiv = styled.div<{ $fullWidth? : boolean }>`
   width: 100%;
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+  background-color: ${({ $fullWidth }) => ($fullWidth ? `${Dark}` : "none")};
+`;
+
+const ProjectsDiv = styled.div`
+  width: 80%;
   height: 300px;
   background-color: ${Dark};
   color: ${Light};
-  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+`;
+
+const ProjectsHeader = styled.h1`
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
 `;
 
 const ResumeDiv = styled.div`
@@ -138,7 +154,8 @@ const ResumeDiv = styled.div`
   height: 600px;
   background-color: ${Accent};
   color: ${Dark};
-  margin-top: 80px;
+  display: flex;
+  justify-content: center;
 `;
 
 const onProjectClick = () => {
@@ -243,13 +260,18 @@ function App() {
           about front-end dev and machine learning applications!
         </BioDiv>
 
-        <ProjectsDiv id="projects">
-          Projects
-        </ProjectsDiv>
+        <SectionDiv $fullWidth={true}>
+          <ProjectsDiv id="projects">
+            <ProjectsHeader>Projects</ProjectsHeader>
+          </ProjectsDiv>
+        </SectionDiv>
 
-        <ResumeDiv id="resume">
-          Resume
-        </ResumeDiv>
+        <SectionDiv>
+          <ResumeDiv id="resume">
+            <ProjectsHeader>Resume</ProjectsHeader>
+          </ResumeDiv>
+        </SectionDiv>
+
       </BodyDiv>
     </MainDiv>
   );
