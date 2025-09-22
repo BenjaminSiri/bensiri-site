@@ -116,6 +116,10 @@ const PFPDiv = styled.div<{ $imageUrl?: string }>`
   &:hover {
     border-color: ${Accent};
   }
+
+  @media (max-width: 650px) {
+    width: 250px;
+  }
 `;
 
 const BioDiv = styled.div`
@@ -124,6 +128,10 @@ const BioDiv = styled.div`
   font-size: 42px;
   font-weight: bold;
   text-align: left;
+
+  @media (max-width: 650px) {
+    font-size: 28px;
+  }
 `;
 
 const SectionDiv = styled.div<{ $fullWidth? : boolean }>`
@@ -142,6 +150,10 @@ const ProjectsDiv = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
+
+  @media (max-width: 650px) {
+    align-items: center;
+  }
 `;
 
 const ProjectsHeader = styled.h1`
