@@ -272,12 +272,19 @@ function App() {
           <ProjectsDiv id="projects">
             <ProjectsHeader>Projects</ProjectsHeader>
             <ProjectsGrid>
-              <ProjectCard 
+              <ProjectCard
                 title='TrueHue'
                 description='Modern color vision testing platform'
                 type='Startup'
                 image='/images/TrueHue.png'
                 link='https://truehue.app'
+              />
+              <ProjectCard
+                title='Guess My Spotify'
+                description='Allows users to guess their most played songs and artists with the spotify API'
+                type='Personal Project'
+                image='/images/GuessMySpotify.png'
+                link='https://main.djykgt5kfze64.amplifyapp.com'
               />
             </ProjectsGrid>
           </ProjectsDiv>
