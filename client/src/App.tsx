@@ -136,16 +136,24 @@ const SectionDiv = styled.div<{ $fullWidth? : boolean }>`
 
 const ProjectsDiv = styled.div`
   width: 80%;
-  height: 300px;
+  min-height: 200px;
   background-color: ${Dark};
   color: ${Light};
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 40px;
 `;
 
 const ProjectsHeader = styled.h1`
   width: 90%;
   text-align: left;
+  margin-top: 20px;
+`;
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   margin-top: 20px;
 `;
 
@@ -263,6 +271,38 @@ function App() {
         <SectionDiv $fullWidth={true}>
           <ProjectsDiv id="projects">
             <ProjectsHeader>Projects</ProjectsHeader>
+            <ProjectsGrid>
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+              <ProjectCard 
+                title='Project 1'
+                description='This is a description of project 1.'
+                link='#'
+              />
+            </ProjectsGrid>
           </ProjectsDiv>
         </SectionDiv>
 

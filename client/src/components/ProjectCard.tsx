@@ -1,9 +1,24 @@
 import React from "react";
+import styled from "styled-components";
+import  { Card, CardContent, CardActions, Typography }  from "@mui/material";
 
-const ProjectCard: React.FC = () => {
+interface ProjectCardProps {
+    title: string;
+    description: string;
+    link: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({title, description, link}) => {
 
     return(
-        <div>ProjectCard</div>
+        <Card>
+            <CardContent>
+                <Typography variant="h5">{title}</Typography>
+                <Typography variant="body1">{description}</Typography>
+            </CardContent>
+            <CardActions>
+            </CardActions>
+        </Card>
     );
 }
 
