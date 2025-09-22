@@ -6,11 +6,19 @@ import { Accent, Accent2, Dark, Light } from "../globalStyles";
 const StyledCard = styled(Card)`
     background-color: ${Light};
     max-width: 350px;
+    height: 250px;
 
     &:hover{
         transform: translateY(-10px);
         transition: transform 0.2s ease-in-out;
     }
+`;
+
+const StyledCardContent = styled(CardContent)`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
 `;
 
 interface ProjectCardProps {
@@ -35,11 +43,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({title, description, type, link
                 image={image}
                 alt={title}
             />
-            <CardContent>
-                <h2>{title}</h2>
-                <h3>{description}</h3>
+            <StyledCardContent>
+                <div>
+                    <h2>{title}</h2>
+                    <h4>{description}</h4>
+                </div>
                 <h5>{type}</h5>
-            </CardContent>
+            </StyledCardContent>
         </StyledCard>
     );
 }
