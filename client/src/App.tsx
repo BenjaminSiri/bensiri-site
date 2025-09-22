@@ -152,7 +152,7 @@ const ProjectsHeader = styled.h1`
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
   margin-top: 20px;
 `;
@@ -273,34 +273,11 @@ function App() {
             <ProjectsHeader>Projects</ProjectsHeader>
             <ProjectsGrid>
               <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
-              />
-              <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
-              />
-              <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
-              />
-              <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
-              />
-              <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
-              />
-              <ProjectCard 
-                title='Project 1'
-                description='This is a description of project 1.'
-                link='#'
+                title='TrueHue'
+                description='Modern color vision testing platform'
+                type='Startup'
+                image='/images/TrueHue.png'
+                link='https://truehue.app'
               />
             </ProjectsGrid>
           </ProjectsDiv>

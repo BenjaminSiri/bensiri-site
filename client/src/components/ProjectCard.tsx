@@ -1,24 +1,46 @@
 import React from "react";
 import styled from "styled-components";
-import  { Card, CardContent, CardActions, Typography }  from "@mui/material";
+import  { Card, CardContent, CardActions, CardMedia }  from "@mui/material";
+import { Accent, Accent2, Dark, Light } from "../globalStyles";
+
+const StyledCard = styled(Card)`
+    background-color: ${Light};
+    max-width: 350px;
+
+    &:hover{
+        transform: translateY(-10px);
+        transition: transform 0.2s ease-in-out;
+    }
+`;
 
 interface ProjectCardProps {
     title: string;
     description: string;
+    type: string;
     link: string;
+    image: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({title, description, link}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({title, description, type, link, image}) => {
+
+    const handleClick = () => {
+        window.open(link, "_blank");
+    }
 
     return(
-        <Card>
+        <StyledCard onClick={handleClick}>
+            <CardMedia
+                component="img"
+                height="140"
+                image={image}
+                alt={title}
+            />
             <CardContent>
-                <Typography variant="h5">{title}</Typography>
-                <Typography variant="body1">{description}</Typography>
+                <h2>{title}</h2>
+                <h3>{description}</h3>
+                <h5>{type}</h5>
             </CardContent>
-            <CardActions>
-            </CardActions>
-        </Card>
+        </StyledCard>
     );
 }
 
