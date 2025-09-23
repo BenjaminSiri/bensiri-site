@@ -34,6 +34,9 @@ const NavDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
+  @media (max-width: 650px) {
+    width: 90%;
+  }
 `;
 
 const StickyNavDiv = styled.div<{ visible: boolean }>`
