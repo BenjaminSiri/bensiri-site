@@ -31,6 +31,7 @@ const NavDiv = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
 `;
 
@@ -85,8 +86,8 @@ const StyledButton = styled(Button)<{$sticky? : boolean}>`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: ${({ $sticky }) => ($sticky ? '100%' : '44px')};
-    height: ${({ $sticky }) => ($sticky ? '16px' : '100%')};
+    aspect-ratio: 1 / 1;
+    width: 44px;
     background-color: ${({ $sticky }) => ($sticky ? Accent2 : Accent)};
     transition: all 0.3s ease;
     z-index: -1;
@@ -95,6 +96,18 @@ const StyledButton = styled(Button)<{$sticky? : boolean}>`
   &:hover::before {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 650px) {
+
+    && {
+      font-size: 10px;
+      height: 26px;
+    }
+
+    &::before {
+      width: 26px;
+    }
   }
 `;
 
@@ -211,13 +224,13 @@ function App() {
       <BodyDiv>
         <NavDiv>
           <NavButtonsDiv>
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" onClick={onTopClick}>
-            <rect x="2" y="2" width="60" height="60" rx="8"
-                  fill="none" stroke="#000000" stroke-width="4"/>
-            <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-                  font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                  font-weight="800" font-size="30" fill="#000000">BS</text>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" onClick={onTopClick}>
+              <rect x="2" y="2" width="60" height="60" rx="8"
+                    fill="none" stroke="#000000" stroke-width="4"/>
+              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                    font-weight="800" font-size="30" fill="#000000">BS</text>
+            </svg>
 
             <StyledButton
               onClick={onProjectClick}
@@ -231,7 +244,6 @@ function App() {
             >
               Resume
             </StyledButton>
-
           </NavButtonsDiv>
           <StyledButton
             $sticky={false}
