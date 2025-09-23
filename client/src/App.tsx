@@ -5,6 +5,7 @@ import { Accent, Accent2, Dark, Light } from './globalStyles';
 
 import ContactDialog from './components/ContactDialog';
 import ProjectCard from './components/ProjectCard';
+import { useWindowWidth } from './util/useWindowWidth';
 
 
 const MainDiv = styled.div`
@@ -208,6 +209,7 @@ function App() {
 
   const [stickyNavVisible, setStickyNavVisible] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -224,13 +226,23 @@ function App() {
       <BodyDiv>
         <NavDiv>
           <NavButtonsDiv>
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" onClick={onTopClick}>
-              <rect x="2" y="2" width="60" height="60" rx="8"
-                    fill="none" stroke="#000000" stroke-width="4"/>
-              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-                    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                    font-weight="800" font-size="30" fill="#000000">BS</text>
-            </svg>
+            {windowWidth > 650 ?
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" onClick={onTopClick}>
+                <rect x="2" y="2" width="60" height="60" rx="8"
+                      fill="none" stroke="#000000" stroke-width="4"/>
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      font-weight="800" font-size="30" fill="#000000">BS</text>
+              </svg>
+              :
+              <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" onClick={onTopClick}>
+                <rect x="2" y="2" width="40" height="40" rx="8"
+                      fill="none" stroke="#000000" stroke-width="4"/>
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      font-weight="800" font-size="20" fill="#000000">BS</text>
+              </svg>
+            }
 
             <StyledButton
               onClick={onProjectClick}
