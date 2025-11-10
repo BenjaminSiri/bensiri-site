@@ -188,11 +188,21 @@ const ProjectsGrid = styled.div`
 
 const ResumeDiv = styled.div`
   width: 80%;
-  height: 600px;
   background-color: ${Accent};
   color: ${Dark};
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+`;
+
+const PDFDiv = styled.iframe`
+  width: 700px;
+  aspect-ratio: 1/1.29;
+  margin: auto;
+
 `;
 
 const onProjectClick = () => {
@@ -339,6 +349,18 @@ function App() {
         <SectionDiv>
           <ResumeDiv id="resume">
             <ProjectsHeader>Resume</ProjectsHeader>
+            <PDFDiv
+              src="/resume.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
+              style={{ border: "none" }}
+            ></PDFDiv>
+            <a
+              href="/resume.pdf"
+              download="Ben_Siri_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Resume
+            </a>
           </ResumeDiv>
         </SectionDiv>
 
