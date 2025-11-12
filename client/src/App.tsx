@@ -39,7 +39,7 @@ const NavDiv = styled.div`
   }
 `;
 
-const StickyNavDiv = styled.div<{ visible: boolean }>`
+const StickyNavDiv = styled.div<{ $visible?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -50,7 +50,7 @@ const StickyNavDiv = styled.div<{ visible: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  transform: translateY(${({ visible }) => (visible ? "0" : "-110%")});
+  transform: translateY(${({ $visible }) => ($visible ? "0" : "-110%")});
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
   background-color: ${Accent};
@@ -198,8 +198,8 @@ const ResumeDiv = styled.div`
   padding-bottom: 50px;
 `;
 
-const PDFDiv = styled.iframe`
-  width: 700px;
+const PDFDiv = styled.iframe<{ $fullWidth? : boolean }>`
+  width: ${({ $fullWidth }) => ($fullWidth ? `700px` : `300px`)};
   aspect-ratio: 1/1.29;
   margin: auto;
 
@@ -242,18 +242,18 @@ function App() {
             {windowWidth > 650 ?
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" onClick={onTopClick}>
                 <rect x="2" y="2" width="60" height="60" rx="8"
-                      fill="none" stroke="#000000" stroke-width="4"/>
-                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                      font-weight="800" font-size="30" fill="#000000">BS</text>
+                      fill="none" stroke="#000000" strokeWidth="4"/>
+                <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle"
+                      fontFamily="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      fontWeight="800" fontSize="30" fill="#000000">BS</text>
               </svg>
               :
               <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" onClick={onTopClick}>
                 <rect x="2" y="2" width="40" height="40" rx="8"
-                      fill="none" stroke="#000000" stroke-width="4"/>
-                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                      font-weight="800" font-size="20" fill="#000000">BS</text>
+                      fill="none" stroke="#000000" strokeWidth="4"/>
+                <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle"
+                      fontFamily="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      fontWeight="800" fontSize="20" fill="#000000">BS</text>
               </svg>
             }
 
@@ -278,14 +278,14 @@ function App() {
           </StyledButton>
         </NavDiv>
 
-        <StickyNavDiv visible={stickyNavVisible}>
+        <StickyNavDiv $visible={stickyNavVisible}>
           <NavButtonsDiv>
             <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" onClick={onTopClick}>
               <rect x="2" y="2" width="40" height="40" rx="8"
-                    fill="none" stroke="#000000" stroke-width="4"/>
-              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-                    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                    font-weight="800" font-size="20" fill="#000000">BS</text>
+                    fill="none" stroke="#000000" strokeWidth="4"/>
+              <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle"
+                    fontFamily="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                    fontWeight="800" fontSize="20" fill="#000000">BS</text>
             </svg>
 
               <StyledButton
@@ -352,6 +352,7 @@ function App() {
             <PDFDiv
               src="/resume.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
               style={{ border: "none" }}
+              $fullWidth={windowWidth > 650}
             ></PDFDiv>
             <a
               href="/resume.pdf"
