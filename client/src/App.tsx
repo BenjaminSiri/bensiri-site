@@ -83,6 +83,7 @@ const StyledButton = styled(Button)<{$sticky? : boolean}>`
     padding: 2px 2px;
     cursor: pointer;
     border-radius: 0;
+    white-space: nowrap;
   }
 
   &::before {
@@ -327,20 +328,6 @@ function App() {
                 type='Startup'
                 image='/images/TrueHue.png'
                 link='https://truehue.app'
-              />
-              <ProjectCard
-                title='Guess My Spotify'
-                description='Allows users to guess their most played songs and artists with the spotify API'
-                type='Personal Project'
-                image='/images/GuessMySpotify.png'
-                link='https://main.djykgt5kfze64.amplifyapp.com'
-              />
-              <ProjectCard
-                title='Jamming'
-                description='Search songs, create playlists, and save them to your Spotify account'
-                type='Personal Project'
-                image='/images/Jamming.png'
-                link='https://main.djfhhd91huokm.amplifyapp.com/'
               />
             </ProjectsGrid>
           </ProjectsDiv>
