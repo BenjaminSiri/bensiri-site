@@ -337,7 +337,7 @@ function App() {
           <ResumeDiv id="resume">
             <ProjectsHeader>Resume</ProjectsHeader>
             <PDFDiv
-              src="/resume.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
+              src="/resume_v2.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0"
               style={{ border: "none" }}
               $fullWidth={windowWidth > 650}
             ></PDFDiv>
